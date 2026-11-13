@@ -1,0 +1,19 @@
+   CREATE TABLE customer_records (
+     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+     first_name TEXT NOT NULL,
+     last_name TEXT NOT NULL,
+     address TEXT NOT NULL,
+     birthday TEXT NOT NULL
+   );
+
+   saveCustomer: INSERT INTO customer_records (first_name, last_name, address, birthday)
+     VALUES (:firstName, :lastName, :address, :birthday);
+
+   getAllCustomers: SELECT * FROM customer_records;
+
+   updateCustomer: UPDATE customer_records
+     SET first_name = :firstName, last_name = :lastName,
+         address = :address, birthday = :birthday
+     WHERE id = :id;
+
+   deleteCustomer: DELETE FROM customer_records WHERE id = :id;
