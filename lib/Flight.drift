@@ -1,0 +1,23 @@
+CREATE TABLE flight_records (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    departure_city TEXT NOT NULL,
+    destination_city TEXT NOT NULL,
+    departure_time TEXT NOT NULL,
+    arrival_time TEXT NOT NULL
+);
+
+saveFlight: INSERT INTO flight_records
+    (departure_city, destination_city, departure_time, arrival_time)
+    VALUES (:departureCity, :destinationCity, :departureTime, :arrivalTime);
+
+getAllFlights: SELECT * FROM flight_records;
+
+updateFlight: UPDATE flight_records
+    SET departure_city = :departureCity,
+        destination_city = :destinationCity,
+        departure_time = :departureTime,
+        arrival_time = :arrivalTime
+    WHERE id = :id;
+
+deleteFlight: DELETE FROM flight_records
+    WHERE id = :id;
